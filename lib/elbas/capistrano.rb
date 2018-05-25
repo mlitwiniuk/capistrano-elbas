@@ -13,7 +13,7 @@ def autoscale(groupname, *args)
   set :aws_autoscale_group, groupname
 
   running_instances.each do |instance|
-    hostname = instance.dns_name || instance.private_ip_address
+    hostname = instance.dns_name || instance.ip_address
     p "ELBAS: Adding server: #{hostname}"
     server(hostname, *args)
   end
