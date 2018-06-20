@@ -48,6 +48,10 @@ module Elbas
           options.merge user_data: user_data
         end
 
+        if key_pair = fetch(:aws_launch_configuration_key_pair, nil)
+          options.merge key_pair: key_pair
+        end
+
         options
       end
 
